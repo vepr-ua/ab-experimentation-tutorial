@@ -23,6 +23,15 @@ python src/analysis.py      # Power analysis + stats
 python src/assignment.py    # Assignment mechanics
 ```
 
+## What You'll Learn
+
+1. **Assignment mechanics**: How production systems ensure consistent, random assignment
+2. **Power analysis**: Why sample size matters and how to calculate it
+3. **Statistical testing**: Implementing z-tests and interpreting results
+4. **Confidence intervals**: Understanding uncertainty in your estimates
+5. **Common pitfalls**: Peeking, multiple comparisons, Simpson's paradox
+
+
 ## The Anatomy of an Experiment
 
 Every A/B test has these core components:
@@ -132,28 +141,3 @@ ab-experimentation-tutorial/
 └── notebooks/
     └── experiment.py      # Run the full experiment
 ```
-
-## Quick Start
-
-```bash
-# Install uv if you haven't
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Create and activate virtual environment
-uv venv
-source .venv/bin/activate  # or `.venv\Scripts\activate` on Windows
-
-# Install dependencies
-uv pip install -e .
-
-# Run the experiment
-python notebooks/experiment.py
-```
-
-## What You'll Learn
-
-1. **Assignment mechanics**: How production systems ensure consistent, random assignment
-2. **Power analysis**: Why sample size matters and how to calculate it
-3. **Statistical testing**: Implementing z-tests and interpreting results
-4. **Confidence intervals**: Understanding uncertainty in your estimates
-5. **Common pitfalls**: Peeking, multiple comparisons, Simpson's paradox
