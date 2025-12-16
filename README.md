@@ -21,6 +21,10 @@ python notebooks/experiment.py
 python src/simulation.py    # See different scenarios
 python src/analysis.py      # Power analysis + stats
 python src/assignment.py    # Assignment mechanics
+
+# Interactive notebook (analyze your own data)
+uv pip install jupyter
+jupyter notebook notebooks/custom_experiment.ipynb
 ```
 
 ## What You'll Learn
@@ -134,10 +138,11 @@ ab-experimentation-tutorial/
 ├── pyproject.toml
 ├── src/
 │   ├── __init__.py
-│   ├── assignment.py      # User → variant assignment
-│   ├── metrics.py         # Metric computation
-│   ├── analysis.py        # Statistical tests
-│   └── simulation.py      # Generate synthetic data
+│   ├── assignment.py              # User → variant assignment
+│   ├── metrics.py                 # Metric computation
+│   ├── analysis.py                # Statistical tests
+│   └── simulation.py              # End-to-end experiment simulation
 └── notebooks/
-    └── experiment.py      # Run the full experiment
+    ├── experiment.py              # Run the full experiment
+    └── custom_experiment.ipynb    # Interactive notebook for custom data
 ```
