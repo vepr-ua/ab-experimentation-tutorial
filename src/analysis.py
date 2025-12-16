@@ -77,13 +77,13 @@ def calculate_experiment_duration(
 ) -> int:
     """
     Calculate how many days to run the experiment.
-    
+
     Args:
         sample_size_per_variant: Required users per variant
         daily_traffic: Average daily users
         num_variants: Number of experiment variants
         traffic_fraction: Fraction of traffic in experiment (0-1)
-    
+
     Returns:
         Number of days required
     """
@@ -91,6 +91,51 @@ def calculate_experiment_duration(
     daily_experiment_traffic = daily_traffic * traffic_fraction
     days = total_users_needed / daily_experiment_traffic
     return int(np.ceil(days))
+
+
+def calculate_mde(
+    sample_size_per_variant: int,
+    baseline_rate: float,
+    alpha: float = 0.05,
+    power: float = 0.8
+) -> float:
+    """
+    Calculate the Minimum Detectable Effect (MDE) given a sample size.
+
+    This is the inverse of calculate_sample_size - given a fixed sample size,
+    what's the smallest effect we can reliably detect?
+
+    Uses binary search since there's no closed-form solution.
+
+    Args:
+        sample_size_per_variant: Number of users per variant
+        baseline_rate: Current conversion rate (e.g., 0.10 for 10%)
+        alpha: Significance level
+        power: Statistical power
+
+    Returns:
+        MDE as a relative effect (e.g., 0.10 = 10% lift)
+
+    Example:
+        With 5000 users per variant and 10% baseline:
+        >>> calculate_mde(5000, 0.10)
+        0.178  # Can detect ~18% relative lift
+    """
+    # Binary search for MDE
+    low, high = 0.001, 2.0  # Search between 0.1% and 200% lift
+
+    while high - low > 0.001:
+        mid = (low + high) / 2
+        required_n = calculate_sample_size(baseline_rate, mid, alpha, power)
+
+        if required_n > sample_size_per_variant:
+            # Need more users than we have, so MDE must be larger
+            low = mid
+        else:
+            # We have enough users, MDE could be smaller
+            high = mid
+
+    return round(high, 3)
 
 
 # ============================================================================
