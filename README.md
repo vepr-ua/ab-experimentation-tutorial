@@ -143,6 +143,5 @@ ab-experimentation-tutorial/
 │   ├── analysis.py                # Statistical tests
 │   └── simulation.py              # End-to-end experiment simulation
 └── notebooks/
-    ├── experiment.py              # Run the full experiment
     └── custom_experiment.ipynb    # Interactive notebook for custom data
 ```
