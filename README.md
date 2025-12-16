@@ -1,14 +1,14 @@
 # A/B Experimentation: From Theory to Practice
 
-A hands-on tutorial for understanding experimentation systems by building one.
+A hands-on guide for understanding experimentation systems by building one.
 
 ![experimentation image](experimentation-poster.png "Poster represents null hypothesis rejection")
 
 ## Getting Started
 
 ```bash
-git clone git@github.com:vepr-ua/ab-experimentation-tutorial.git
-cd ab-experimentation-tutorial
+git clone git@github.com:vepr-ua/ab-experimentation-guide.git
+cd ab-experimentation-guide
 
 # Start virtual environment
 uv venv
@@ -109,7 +109,7 @@ Output:
 ## Project Structure
 
 ```
-ab-experimentation-tutorial/
+ab-experimentation-guide/
 ├── README.md
 ├── docs/
 │   ├── concepts.md        # Statistical foundations
