@@ -2,6 +2,24 @@
 
 A hands-on tutorial for understanding experimentation systems by building one.
 
+![experimentation image](experimentation-poster.png "Poster represents null hypothesis rejection")
+
+## Getting Started 
+```bash
+cd ab-experimentation-tutorial
+uv venv
+source .venv/bin/activate
+uv pip install -e .
+
+# Run the full tutorial
+python notebooks/experiment.py
+
+# Or explore individual modules
+python src/simulation.py    # See different scenarios
+python src/analysis.py      # Power analysis + stats
+python src/assignment.py    # Assignment mechanics
+```
+
 ## The Anatomy of an Experiment
 
 Every A/B test has these core components:
