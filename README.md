@@ -6,7 +6,10 @@ A hands-on tutorial for understanding experimentation systems by building one.
 
 ## Getting Started 
 ```bash
+git clone git@github.com:vepr-ua/ab-experimentation-tutorial.git
 cd ab-experimentation-tutorial
+
+# Start virtual environment
 uv venv
 source .venv/bin/activate
 uv pip install -e .
